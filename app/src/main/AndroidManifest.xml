@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.helmetpapa">
+
+    <!--인터넷허용-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_main"
+        android:label="helmetpapa"
+        android:roundIcon="@mipmap/ic_main_round"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.Helmetpapa">
+
+        <!--스플래시 액티비티 -->
+        <activity android:name=".SplashActivity"
+            android:theme="@style/SplashTheme"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".CameraActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".MainActivity"
+            android:exported="true"></activity>
+        <activity android:name=".RegisterActivity"
+            android:exported="true"></activity> <!--회원가입액티비티-->
+        <activity android:name="CameraBtnActivity"
+            android:exported="true"></activity><!--카메라실행버튼액티비티-->
+        <activity android:name=".SuccessActivity"
+            android:exported="true"/>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.helmetpapa"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>
